@@ -1,0 +1,40 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col col-md-12 col-xs-12">
+			<div class="row">
+				<div class="col-md-3 search-box">
+					Search:
+					<input type="text" [(ngModel)]="search">
+				</div>
+				<div class="col-md-3 view-box">
+					View Categories:
+					<select [(ngModel)]="view">
+						<option value="" [selected]="">All</option>
+						<option value="characters">Characters</option>
+						<option value="houses">Houses</option>
+						<option value="books">Books</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+	<div class="row" *ngIf="allData.length>0">
+		<div  *ngFor="let data of allData|filter:search|sort|select:view">
+			<div class="col-xs-12 col-md-4 col-md-offset-1 text-center " *ngIf="data.isbn">
+				<div class="card">
+					<img class="card-img-top" src="../../assets/book.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">{{data.name}}</h5>
+						<a [routerLink]="['/books',data.url.split('/').pop()]" class="btn btn-primary btn-sm">Get Details</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<br>
+<br>
+<br>

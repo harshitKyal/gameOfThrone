@@ -1,0 +1,40 @@
+.singleBookCard {
+    background: url('/../assets/singleBook.jpg');
+    background-size: 100% 100% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    border-radius: 16px;
+    box-shadow: 8px 8px 8px #5F4B56;
+    padding:5%;
+}
+
+.fa{
+    display:inline-block;
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+.fa-5x{
+    font-size:5em
+}
+.fa-book:before{
+    content:"\f02d"
+}
+.singleBookCard a {
+    color: white;
+}
+.singleBookCard a:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: bold;
+    font-size: 20px;
+}
+.singleBookCard:hover {
+    box-shadow: 14px 14px 14px #5F4B56;
+}
+.singleBookCard div {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}

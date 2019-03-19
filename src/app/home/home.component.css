@@ -1,0 +1,53 @@
+
+.card{
+  width : 14rem;
+  margin-top: 35px;
+  height: 18rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.hh{
+  height:2.5em;
+}
+.books{
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: 2px solid;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  color: rgba(0,0,0,1);
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: linear-gradient(to right, #8c1ce3 0%, #9900cc 100%);
+  margin-top: 5%;
+}
+
+.card img{
+  border: 1px solid lightgrey;
+  width: 100%;
+  height: auto;
+}
+
+.card-title{
+  font-size:18px;
+  font-weight: 800;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.card-body{
+  text-align: center;
+}
+
+.search-box, .view-box{
+  margin-left: 200px;
+  
+}
+footer{
+  background-color: black;
+  color: white;
+}
+
+select {
+  background-color: black;
+}

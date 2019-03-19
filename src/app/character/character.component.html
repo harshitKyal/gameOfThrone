@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Alias: </h3>
+        <h5>{{character.aliases}}</h5>
+      </div>
+      <div class="col-md-6">
+        <h3>Gender: </h3>
+        <h5>{{character.gender}}</h5>
+      </div>
+      <div class="col-md-6" *ngIf = "character.culture">
+        <h3>Culture: </h3>
+        <h5>{{character.culture}}</h5>
+      </div>
+      <div class="col-md-6">
+        <h3>Books:</h3>
+        <h5 *ngFor="let book of character.books">
+          <a [routerLink]="['/books',book.split('/').pop()]">{{book}}</a>
+        </h5>
+      </div>
+      
+  </div>
+
+  <br><br>
+      <button type="button" class="btn btn-dark" [routerLink]="['/home']">Go Back</button>
+</div>
