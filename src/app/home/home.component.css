@@ -1,9 +1,24 @@
 
 .card{
   width : 14rem;
-  margin-top: 35px;
+  margin: 30%; 
   height: 18rem;
+  border: 2px solid;
+  border-radius: 40px;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  color: rgb(231, 158, 158);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  background: linear-gradient(to right, #8c1ce3 0%, #9900cc 100%);
+  /* margin-top: 5%; */
+}
+a{
+  text-decoration: none;
+}
+.filterTitle h4 span {
+  color:#62B7BA;
+  font-family: 'Arima Madurai', cursive;
 }
 .hh{
   height:2.5em;
@@ -25,7 +40,7 @@
 .card img{
   border: 1px solid lightgrey;
   width: 100%;
-  height: auto;
+  height: 150px;
 }
 
 .card-title{
@@ -49,5 +64,5 @@ footer{
 }
 
 select {
-  background-color: black;
+  background-color: white;
 }

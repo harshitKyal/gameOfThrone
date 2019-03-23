@@ -13,39 +13,46 @@ export class HomeComponent implements OnInit {
    public allCharacters;
    public allBooks;
    public allHouses;
-  constructor(public gotHttpService:GotHttpService) { }
+  constructor(public gotHttpService: GotHttpService) { }
 
   ngOnInit() {
     this.charData();
     this.bookData();
     this.houseData();
     setTimeout(() => {
-      console.log(this.allData);
+      //console.log("on in");
+      // this.allData["book"]:true;
+      //console.log(this.allData);
     }, 10000);
   }
 
-  public charData = ()=>{
+  public charData = () => {
     //characters
         this.gotHttpService.getAllCharacters().subscribe(
-          data =>{            
+          data => {            
             this.allData = this.allData.concat(data);            
           }
         );
   }
 
-  public bookData = () =>{
+  public bookData = () => {
       //books
       this.gotHttpService.getAllBooks().subscribe( 
-      data =>{
-        this.allData = this.allData.concat(data);        
+      data => {
+        this.allData = this.allData.concat(data);    
+        this.allData['book'] = true;   
+        //console.log(this.allData) 
       });
+      
+      // console.log("sadsa");
+      // console.log(this.allData);
 
   }
 
-  public houseData = ()=>{
+  public houseData = () => {
   //houses
     this.gotHttpService.getAllHouses().subscribe( 
-      data =>{
+      data => {
           this.allData = this.allData.concat(data);
           //final composed data array having all the data in one array
           

@@ -8,27 +8,29 @@
 		</div>
 
 	<div class="col col-sm-5 col-md-5 text-center">
+		<br>
+		<br>
 		<div class="col col-sm-12 col-md-12">
 			<!-- <h3>ISBN: </h3> -->
-			<h4><b>ISBN : </b> : {{ book.isbn }}</h4>
+			<h6><b>ISBN : </b> : {{ book.isbn }}</h6>
 		</div>
 		<div class="col col-sm-12 col-md-12" *ngIf="book.numberOfPages">
-			<h4> <b>Number of Pages:</b> {{book.numberOfPages}} </h4>
+			<h6> <b>Number of Pages:</b> {{book.numberOfPages}} </h6>
 		</div>
 		<div class="col col-sm-12 col-md-12" *ngIf="book.publisher">
-			<h4> <b>Publisher:</b> {{book.publisher}} </h4>
+			<h6> <b>Publisher:</b> {{book.publisher}} </h6>
 		</div>
 		<div class="col col-sm-12 col-md-12" *ngIf="book.country">
-			<h4> <b>Country:</b> {{book.country}} </h4>
+			<h6> <b>Country:</b> {{book.country}} </h6>
 		</div>
 		<div class="col col-sm-12 col-md-12" *ngIf="book.mediaType">
-			<h4> <b>Media Type:</b> {{book.mediaType}} </h4>
+			<h6> <b>Media Type:</b> {{book.mediaType}} </h6>
 		</div>
 		<div class="col col-sm-12 col-md-12" *ngIf="book.released">
-			<h4> <b>Released:</b> {{book.released}} </h4>
+			<h6> <b>Released:</b> {{book.released}} </h6>
 		</div>
 		<div class="col col-sm-12 col-md-12" *ngIf="book.authors">
-			<h4> <b> Authors:</b></h4>
+			<h6> <b> Authors:</b></h6>
 			<h6 *ngFor="let author of book.authors">{{author}}</h6>
 		</div>
 	</div>
