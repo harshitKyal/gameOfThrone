@@ -21,7 +21,7 @@ export class BooksComponent implements OnInit {
     this.gotHttpService.getSingleBook(id).subscribe(
       data =>{
         this.book = data;
-        console.log(data);
+        // console.log(data);
       },
 
       error =>{

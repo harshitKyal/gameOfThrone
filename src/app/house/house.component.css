@@ -1,0 +1,30 @@
+.singleHouseCard {
+    background: url('/../assets/singleHouse.jpg');
+    background-size: 100% 100% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    border-radius: 16px;
+    box-shadow: 8px 8px 8px #5F4B56;
+    padding:5%;
+}
+.singleHouseCard a {
+    color: white;
+}
+.singleHouseCard a:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: bold;
+    font-size: 20px;
+}
+.singleHouseCard:hover {
+    box-shadow: 14px 14px 14px #5F4B56;
+}
+.singleHouseCard div {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* 
+.fa-home:before{
+    content:"\f015"
+} */

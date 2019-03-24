@@ -1,6 +1,6 @@
 
 .card{
-  width : 14rem;
+  width : 20rem;
   margin: 30%; 
   height: 18rem;
   border: 2px solid;
@@ -65,4 +65,16 @@ footer{
 
 select {
   background-color: white;
+}
+.fa-long-arrow-down:before{
+  content:"\f175"
+}
+.fa-long-arrow-up:before{
+  content:"\f176"
+}
+.fa-long-arrow-left:before{
+  content:"\f177"
+}
+.fa-long-arrow-right:before{
+  content:"\f178"
 }

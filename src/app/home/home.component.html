@@ -6,65 +6,115 @@
 					Search:
 					<input type="text" [(ngModel)]="search">
 				</div>
-	
-				<div class="col-md-3 view-box">
-					View Categories:
-					<select [(ngModel)]="view">
-						<option value="" [selected]="">All</option>
-						<option value="characters">Characters</option>
-						<option value="houses">Houses</option>
-						<option value="books">Books</option>
-					</select>
+				<div class="text-center" id="filters">
+					<!-- <button class="mbutton" (click)= "allShow()">ALL</button> -->
+					<button class="mbutton" (click)= "booksShow()">BOOKS</button>
+					<button class="mbutton" (click)= "charactersShow()">CHARACTERS</button>
+					<button class="mbutton" (click)= "housesShow()">HOUSES</button>
+					<button class="mbutton" (click)= "resetButton()">Reset</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 	<div class="container" >
-	<div class="row" *ngIf="allData.length>0">
-			<div *ngIf="allData.book">
-					<div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-							<select class="hh" [(ngModel)]="searchBookName">
-							   <!-- <option class="form-control"  value="" enabled >--Select Name--</option> -->
-							   <option name = "nadme" class="form-control" *ngFor="let data of allData | filterUnique : 'name'" [value]="data">{{data}}</option>
+	<div class="row" *ngIf="allData.length>0 && allData.books">
+			
+					<div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
+						
+							<select class="hh form-control" [(ngModel)]="searchBookName" >
+									<option  selected="selected" value="">-- Select Name --</option>
+										<!-- <label>saff</label> -->
+							   <option *ngFor="let data of allData | filterUnique : 'name'" [value]="data">{{data}}</option>
 							</select>
 						 </div>
-						 <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-							<select class="hh" [(ngModel)]="isbn">
-							   <!-- <option class="form-control"  value="" enabled >--Select Name--</option> -->
-							   <option name = "name" class="form-control" *ngFor="let data of allData | filterUnique : 'isbn'" [value]="data">{{data}}</option>
+						
+						 <div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
+							<select class="hh form-control" [(ngModel)]="searchIsbn">
+							   <option   value="" selected="selected" >-- Select Isbn --</option>
+							   <option  *ngFor="let data of allData | filterUnique : 'isbn'" [value]="data">{{data}}</option>
 							</select>
 						 </div>
-						 <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
+						 <div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
 							<!-- <input type="text" [(ngModel)]="searchPublisher"> -->
-							<select class="hh" [(ngModel)]="searchPublisher">
-							   <!-- <option class="form-control"  value="" enabled >--Select Publisher--</option> -->
-							   <option name ="publisher" class="form-control" *ngFor="let data of allData | filterUnique : 'publisher'"  [value]="data">{{data}}</option>
+							<select class="hh form-control" [(ngModel)]="searchPublisher">
+							   <option  value="" selected="selected" >--Select Publisher--</option>
+							   <option *ngFor="let data of allData | filterUnique : 'publisher'"  [value]="data">{{data}}</option>
 							</select>
 						 </div>
-						 <div class="col-md-3  col-xs-6 col-sm-3"  style="padding:0 !important; margin:10px 0px">
-							<select class="hh" [(ngModel)]="searchBookIvdsbn">
-							   <!-- <option class="form-control"  value="" enabled >--Select ISBN--</option> -->
-							   <option name = "isbn" class="form-control"  *ngFor="let item of allData | filterUnique:'isbn'" [value]="item"  >{{item}}</option>
-							</select>
-						 </div>
-					</div>
-		<div  *ngFor="let data of allData	|filter:isbn|searchFilter : isbn:'isbn' |searchFilter : searchBookName:'name'|searchFilter : searchPublisher:'publisher' |sort|select:view">
-			<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="data.isbn">
+					
+						
+						
+					
+	</div>
+	</div>
+	<!-- for character filter -->
+	<div class="container" >
+			<div class="row" *ngIf="allData.length>0 && allData.characters">
+					
+							<div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
+								
+									<select class="hh form-control" [(ngModel)]="searchCharacterName" >
+											<option  selected="selected" value="">-- Select Name --</option>
+										<option *ngFor="let data of allCharArray | filterUnique : 'name'" [value]="data">{{data}}</option>
+									</select>
+								 </div>
+								
+								 <div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
+									<select class="hh form-control" [(ngModel)]="searchGender">
+										<option   value="" selected="selected" >-- Select Gender --</option>
+										<option  *ngFor="let data of allCharArray | filterUnique : 'gender'" [value]="data">{{data}}</option>
+									</select>
+								 </div>
+								 <div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
+									<select class="hh form-control" [(ngModel)]="searchAliases">
+										<option  value="" selected="selected" >--Select Alias--</option>
+										<option *ngFor="let data of allCharArray | filterUnique : 'aliases'"  [value]="data">{{data}}</option>
+									</select>
+								 </div>
+			</div>
+			</div>
+
+	<div class="container">
+<div class="row" *ngIf="allData.length>0">
+	<div  *ngFor="let data of allData	|filter:search|searchFilter : searchIsbn:'isbn' |searchFilter : searchBookName:'name'|searchFilter : searchPublisher:'publisher' |searchFilter : searchCharacterName:'name' |searchFilter : searchGender:'gender' |searchFilter : searchAliases:'aliases' |sort|select:view">
+			<!-- to display books -->
+			<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="(allData.books || allData.all) && data.isbn">
 					<a [routerLink]="['/books',data.url.split('/').pop()]">
 				<div class="card">
 					<img class="card-img-top" src="../../assets/bookTemplate.jpg" alt="Card image cap">
 					<div class="card-body" style="color: black; size:10em;">
 						<h5 class="card-title">{{data.name}}</h5>
-						<!-- <h3 class="text-center">{{ data.name }}</h3> -->
 						<h6 name = "isbn" class="text-center">{{data.isbn}}</h6>
 						<h6 class="text-center">No of Pages : {{ data.numberOfPages }}</h6>
-						<!-- <h5 class="text-center">Publishers : {{ data.publisher }}</h5> -->
-						<!-- <a [routerLink]="['/books',data.url.split('/').pop()]" class="btn btn-primary btn-sm">Get Details</a> -->
 					</div>
 				</div></a>
 			</div>
+			<!-- to display characters -->
+			<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="(allData.characters || allData.all) && data.gender">
+				<a [routerLink]="['/character',data.url.split('/').pop()]">
+			<div class="card">
+				<img class="card-img-top" src="../../assets/House-Stark.jpg" alt="Card image cap">
+				<div class="card-body" style="color: black; size:10em;">
+					<h5 class="card-title">{{data.name || "Name Not Available" }}</h5>
+					<h6 class="text-center">Gender : {{data.gender}}</h6>
+					<h6 class="text-center">Alias : {{ data.aliases || "Alias Not Available"}}</h6>
+					
+				</div>
+			</div></a>
+		</div>
+		<!-- to display houses -->
+		<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="(allData.houses || allData.all) && data.region">
+			<a [routerLink]="['/houses',data.url.split('/').pop()]">
+		<div class="card">
+			<img class="card-img-top" src="../../assets/house.png" alt="Card image cap">
+			<div class="card-body" style="color: black; size:10em;">
+				<h5 class="card-title">{{data.name || "Name Not Available" }}</h5>
+				<h6 class="text-center">Region : {{data.region}}</h6>
 
+			</div>
+		</div></a>
+	</div>
 		</div>
 		
 	</div></div>

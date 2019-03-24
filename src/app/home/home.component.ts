@@ -13,39 +13,51 @@ export class HomeComponent implements OnInit {
    public allCharacters;
    public allBooks;
    public allHouses;
+   //public allData : any[]= []
+   public allCharArray = [];
+   public allBookArray = [];
+   public allHouseArray = [];
+   public searchBookName="";
+   public searchIsbn="";
+   public searchPublisher="";
+   public searchCharacterName ="";
+   public searchGender ="";
+   public searchAliases= "";
   constructor(public gotHttpService: GotHttpService) { }
 
   ngOnInit() {
     this.charData();
     this.bookData();
     this.houseData();
+    this.allShow();
+    
     setTimeout(() => {
-      //console.log("on in");
-      // this.allData["book"]:true;
-      //console.log(this.allData);
+      this.allShow();
+      console.log(this.allData);
     }, 10000);
   }
 
   public charData = () => {
     //characters
         this.gotHttpService.getAllCharacters().subscribe(
-          data => {            
-            this.allData = this.allData.concat(data);            
+          data => {      
+            this.allCharArray = this.allCharArray.concat(data)  
+            // console.log("in char data")
+            // console.log(this.allCharArray)    
+            this.allData= this.allData.concat(data)
           }
         );
+        // console.log("inchar")
+        // console.log(this.allData)
   }
 
   public bookData = () => {
       //books
       this.gotHttpService.getAllBooks().subscribe( 
       data => {
-        this.allData = this.allData.concat(data);    
-        this.allData['book'] = true;   
-        //console.log(this.allData) 
+        this.allData = this.allData.concat(data);
       });
       
-      // console.log("sadsa");
-      // console.log(this.allData);
 
   }
 
@@ -54,9 +66,49 @@ export class HomeComponent implements OnInit {
     this.gotHttpService.getAllHouses().subscribe( 
       data => {
           this.allData = this.allData.concat(data);
-          //final composed data array having all the data in one array
-          
         }
     );
   }
+
+ public allShow () { //to show all
+     console.log("in all show")
+    this.allData["all"] = true;
+    this.allData["books"] = false ;
+    this.allData["characters"] = false;
+    this.allData["houses"] = false;
+
+    console.log(this.allData)
+}
+
+booksShow() { //to show books
+  this.allData["all"] = false;
+  this.allData["books"] = true ;
+  this.allData["characters"] = false;
+  this.allData["houses"] = false;
+  console.log(this.allData)
+}
+charactersShow() { //to show characters
+  this.allData["all"] = false;
+  this.allData["books"] = false ;
+  this.allData["characters"] = true;
+  this.allData["houses"] = false;
+  console.log(this.allData)
+}
+public housesShow = function() { // to show houses
+  this.allData["all"] = false;
+  this.allData["books"] = false ;
+  this.allData["characters"] = false;
+  this.allData["houses"] = true;
+  console.log(this.allData)
+}
+public resetButton = function(){
+  this.searchBookName="";
+  this.searchIsbn="";
+  this.searchPublisher="";
+  this.searchCharacterName ="";
+  this.searchGender ="";
+  this.searchAliases= "";
+  this.search="";
+  this.allShow();
+}
   }

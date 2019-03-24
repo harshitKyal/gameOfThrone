@@ -21,3 +21,39 @@ button{
 .books{
     text-align: justify;
 }
+
+.fa-book:before{
+    content:"\f02d"
+}
+.fa-male:before{
+    content:"\f183"
+}
+
+.fa-5x{
+    font-size:5em
+}
+.singleCharacterCard {
+    background: url('/../assets/singleCharacter.jpg');
+    background-size: 100% 100% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    border-radius: 16px;
+    box-shadow: 8px 8px 8px #5F4B56;
+    padding:5%;
+}
+.singleCharacterCard a {
+    color: white;
+}
+.singleCharacterCard a:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: bold;
+    font-size: 20px;
+}
+.singleCharacterCard:hover {
+    box-shadow: 14px 14px 14px #5F4B56;
+}
+.singleCharacterCard div {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}

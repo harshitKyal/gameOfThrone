@@ -20,10 +20,9 @@ export class GotHttpService {
 
     getAllCharacters() : any{
     let myResponse = this._http.get(this.charApi);
-  
-     //observable response
      return myResponse;
    }
+   
 
    getAllBooks(){
      let myResponse2 = this._http.get(this.bookApi);

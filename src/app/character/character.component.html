@@ -1,26 +1,91 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Alias: </h3>
-        <h5>{{character.aliases}}</h5>
-      </div>
-      <div class="col-md-6">
-        <h3>Gender: </h3>
-        <h5>{{character.gender}}</h5>
-      </div>
-      <div class="col-md-6" *ngIf = "character.culture">
-        <h3>Culture: </h3>
-        <h5>{{character.culture}}</h5>
-      </div>
-      <div class="col-md-6">
-        <h3>Books:</h3>
-        <h5 *ngFor="let book of character.books">
-          <a [routerLink]="['/books',book.split('/').pop()]">{{book}}</a>
-        </h5>
-      </div>
-      
-  </div>
 
-  <br><br>
-      <button type="button" class="btn btn-dark" [routerLink]="['/home']">Go Back</button>
-</div>
+
+    <div class="singleCharacterCard"  style="margin-top:1em !important;margin-bottom:5% !important;">
+        <div class="row text-center"  style="color: white; size:10em" *ngIf="char">
+          <div class="col col-sm-12 col-md-12 text-center">
+             <i class="fa fa-male fa-5x" aria-hidden="true"></i>
+             <h2 style="margin:0px 5px;" *ngIf ='char.name != ""'> <b> {{ char.name }}</b> 
+                
+             </h2>
+             <!-- <h6>Known as : "{{char.knownAs || "Data Unavailable" }}" </h6> -->
+             <hr style=" border-top: 1px solid white; margin-top: 5px;">
+          </div>
+<!-- 
+          <div class="col col-sm-12 col-md-12 text-center">
+              <i class="fa fa-book fa-5x" aria-hidden="true"></i>
+              <h2 style="margin: 10px 5px;" *ngIf ='book.name != ""'><b> {{ book.name }}  </b></h2>
+              <hr style=" border-top: 1px solid black; margin-top: 5px;">
+          </div> -->
+
+          <div class="col col-sm-5 col-md-5 text-center">
+            <br>
+            <br>
+             <div class="col col-sm-12 col-md-12">
+                <h6>Gender : {{char.gender || "Data Unavailable" }}</h6>
+             </div>
+             <div class="col col-sm-12 col-md-12">
+                <h6> Born : {{ char.born || "Data Unavailable" }}</h6>
+             </div>
+             <div class="col col-sm-12 col-md-12">
+                <h6>Culture : {{ char.culture || "Data Unavailable" }}</h6>
+             </div>
+             <div class="col col-sm-12 col-md-12">
+                  <h6>Died : {{ char.died || "Data Unavailable" }}</h6>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                  <h6>
+                     Father : 
+                     <h6><a [routerLink] ="['/character',char.father.split('/').pop()]" style="color: #81d0e7;">{{ char.father }}</a></h6>
+                     <h6 *ngIf="char.father==''">Data Unavailable</h6>
+                  </h6>
+               </div>
+
+               <div class="col col-sm-12 col-md-12">
+                     <h6>
+                        Mother : 
+                        <h6> <a [routerLink] ="['/character',char.mother.split('/').pop()]" style="color: #81d0e7;"> {{ char.mother }}</a></h6>
+                        <h6 *ngIf="char.mother==''">Data Unavailable</h6>
+                     </h6>
+                  </div>
+                  <div class="col col-sm-12 col-md-12">
+                     <h6>
+                        Spouse : 
+                        <h6><a  [routerLink] ="['/character',char.spouse.split('/').pop()]" style="color: #81d0e7;">{{ char.spouse}}</a></h6>
+                        <h6 *ngIf="char.spouse==''">Data Unavailable</h6>
+                     </h6>
+                  </div>
+                  
+                 
+             
+       </div>
+       <div class="col col-sm-1 col-md-1">
+            <!-- Blank space for UI purposes -->
+         </div>
+         
+         <div class="col col-sm-5 col-md-5 text-center" >
+               <br>
+               <br>
+               <div class="col col-sm-12 col-md-12">
+                  <h6>Played by : "{{ char.playedBy[0] || "Data Unavailable"}}"</h6>
+               </div>
+               <div class="col col-sm-12 col-md-12">
+                     <h6>Title : "{{ char.titles[0] || "Data Unavailable"}}"</h6>
+                  </div>
+                  <div class="col col-sm-12 col-md-12">
+                     <h6>Appeared in : "{{ char.tvSeries || "Data Unavailable" }}"</h6>
+                  </div>
+                  <div class="col col-sm-12 col-md-12" *ngIf = 'char.books.length >= 1'>
+                        <h6>Books :</h6>
+                        <div  *ngFor ="let books of char.books">
+                           <h6><a [routerLink] ="['/books',books.split('/').pop()]"  style="color: #81d0e7;">{{ books }}</a></h6>
+                        </div>
+                     </div>
+         </div>
+    </div>
+    <div class="col col-sm-12 col-md-12" style="display: flex;justify-content: center;margin: 10px 0px;">
+         <p><button  class="btn btn-primary"  onclick="window.history.back();">Back</button></p>
+      </div>
+  </div>
+ 
+ 
+ 

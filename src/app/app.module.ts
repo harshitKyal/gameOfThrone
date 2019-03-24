@@ -15,9 +15,12 @@ import { SelectPipe } from './select.pipe';
 import { SortPipe } from './sort-pipe';
 import {uniquePipe} from './unique';
 import {searchPipe} from './search-pipe';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AlertModule } from 'ngx-bootstrap';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,HttpClientModule,
+  imports:      [ BrowserModule, FormsModule,HttpClientModule,AngularFontAwesomeModule,
+    AlertModule.forRoot(),
   RouterModule.forRoot([
     {path: '', component:HomeComponent},
     {path: 'home', component:HomeComponent},

@@ -3,19 +3,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: any[], searchText?:Array <string>): any[] {
-    //c//onsole.log("in filter pipeeeeeeeeee")
-    // console.log(searchText)
+  transform(items: any[], searchText: string): any[] {
+    console.log(searchText)
     if(!items) return [];
     if(!searchText) return items;
-    //searchText = searchText.toLowerCase();
-
-// console.log("in filter pipe")
-// console.log(items)
-// console.log(searchText)
+searchText = searchText.toLowerCase();
 return items.filter( it => {
-  if((it.isbn != "") && it.hasOwnProperty('isbn'))
-        return it.isbn.includes(searchText);
+      return it.name.toLowerCase().includes(searchText);
     });
    }
 }

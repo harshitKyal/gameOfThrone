@@ -10,6 +10,7 @@ import {ActivatedRoute , Router} from '@angular/router';
 export class HouseComponent implements OnInit {
  public id;
  public house;
+ name:any[];
   constructor(public gotHttpService : GotHttpService,public _route: ActivatedRoute, public router : Router) { }
 
   ngOnInit() {
@@ -21,7 +22,29 @@ export class HouseComponent implements OnInit {
     this.gotHttpService.getSingleHouse(id).subscribe(
       data=>{
         this.house = data;
-        console.log(data);
+        // console.log(data);
+
+      //   for (var i in this.house.titles) {
+      //     this.names.push(this.house.titles[i]);
+      // }
+
+      // main.titles = this.names.toString();
+            
+// tslint:disable-next-line: forin
+if (this.house ) {
+  // console.log("if")
+  // console.log(this.char)
+// tslint:disable-next-line: forin
+      for (let i in this.house.titles) {
+        // this.name.push(i);
+        //console.log(main.people);
+    }
+  }
+    // console.log("series")
+    // console.log(this.series)
+    // this.house.titles = this.name.toString();
+    // console.log("house")
+    // console.log(this.house)
       },
 
       error =>{
