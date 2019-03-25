@@ -102,7 +102,7 @@
 <div class="row" *ngIf="allData.length>0">
 	<div  *ngFor="let data of allData	|filter:search|searchFilter : searchIsbn:'isbn' |searchFilter : searchBookName:'name'|searchFilter : searchPublisher:'publisher' |searchFilter : searchCharacterName:'name' |searchFilter : searchGender:'gender' |searchFilter : searchAliases:'aliases' |searchFilter : searchHouseName:'name'|searchFilter : searchRegion:'region'|sort|select:view |paginate: { itemsPerPage: 10, currentPage: p }">
 			<!-- to display books -->
-			<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="(allData.books || allData.all) && data.isbn">
+			<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="(allData.books || allData.all) && data.url.search('books')>-1">
 					<a [routerLink]="['/books',data.url.split('/').pop()]">
 				<div class="card">
 					<img class="card-img-top" src="../../assets/bookTemplate.jpg" alt="Card image cap">
@@ -142,7 +142,7 @@
 		
 		
 	</div>
-	<div class="text-center ">
+	<div class="text-center" *ngIf="allData.all">
 		<pagination-controls (pageChange)="p = $event" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
 	  </div>
 </div>

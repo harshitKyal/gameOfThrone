@@ -11,7 +11,7 @@ import {ActivatedRoute , Router} from '@angular/router';
 export class CharacterComponent implements OnInit {
   private id : any;
   public char : any;
-  series :[];
+  series :any[];
   constructor(public gotHttpService : GotHttpService,public _route: ActivatedRoute, public router : Router) { }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ if (this.char) {
   }
     // console.log("series")
     // console.log(this.series)
-    this.char.seasons = this.series.toString();
+    // this.char.seasons = this.series.toString();
   },
     
       error =>{

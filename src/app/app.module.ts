@@ -18,10 +18,12 @@ import {searchPipe} from './search-pipe';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,HttpClientModule,AngularFontAwesomeModule,NgxPaginationModule,
     AlertModule.forRoot(),
+    Ng4LoadingSpinnerModule.forRoot(),
   RouterModule.forRoot([
     {path: '', component:HomeComponent},
     {path: 'home', component:HomeComponent},
