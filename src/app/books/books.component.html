@@ -1,61 +1,53 @@
 <div class="singleBookCard" style="margin-top:1em !important;margin-bottom:5% !important;">
-
 	<div class="row text-center"  style="color: white; size:10em" *ngIf="book">
-		<div class="col col-sm-12 col-md-12 text-center">
-				<i class="fa fa-book fa-5x" aria-hidden="true"></i>
-				<h2 style="margin: 10px 5px;" *ngIf ='book.name != ""'><b> {{ book.name }}  </b></h2>
-				<hr style=" border-top: 1px solid black; margin-top: 5px;">
-		</div>
-
-	<div class="col col-sm-5 col-md-5 text-center">
-		<br>
-		<br>
-		<div class="col col-sm-12 col-md-12">
-			<!-- <h3>ISBN: </h3> -->
-			<h6><b>ISBN : </b> : {{ book.isbn }}</h6>
-		</div>
-		<div class="col col-sm-12 col-md-12" *ngIf="book.numberOfPages">
-			<h6> <b>Number of Pages:</b> {{book.numberOfPages}} </h6>
-		</div>
-		<div class="col col-sm-12 col-md-12" *ngIf="book.publisher">
-			<h6> <b>Publisher:</b> {{book.publisher}} </h6>
-		</div>
-		<div class="col col-sm-12 col-md-12" *ngIf="book.country">
-			<h6> <b>Country:</b> {{book.country}} </h6>
-		</div>
-		<div class="col col-sm-12 col-md-12" *ngIf="book.mediaType">
-			<h6> <b>Media Type:</b> {{book.mediaType}} </h6>
-		</div>
-		<div class="col col-sm-12 col-md-12" *ngIf="book.released">
-			<h6> <b>Released:</b> {{book.released}} </h6>
-		</div>
-		<div class="col col-sm-12 col-md-12" *ngIf="book.authors">
-			<h6> <b> Authors:</b></h6>
-			<h6 *ngFor="let author of book.authors">{{author}}</h6>
-		</div>
-	</div>
-	<div class="col col-sm-1 col-md-1">
-		<!-- Blank space for UI purposes -->
-	 </div>
-	 <div class="col col-sm-5 col-md-5 " >
-
-
-
-		<div class="col col-sm-12 col-md-12" *ngIf="book.povCharacters[0]">
-			<h3>Main Characters: </h3>
-			<div  class="col col-sm-12 col-md-12 text-center"  *ngFor ="let character of book.povCharacters">
+	   <div class="col col-sm-12 col-md-12 text-center">
+		  <i class="fa fa-book fa-5x" aria-hidden="true"></i>
+		  <h2 style="margin: 10px 5px;" *ngIf ='book.name != ""'><b> {{ book.name }}  </b></h2>
+		  <hr style=" border-top: 1px solid black; margin-top: 5px;">
+	   </div>
+	   <div class="col col-sm-5 col-md-5 text-center">
+		  <br>
+		  <br>
+		  <div class="col col-sm-12 col-md-12">
+			 <!-- <h3>ISBN: </h3> -->
+			 <h6><b>ISBN : </b> : {{ book.isbn }}</h6>
+		  </div>
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.numberOfPages">
+			 <h6> <b>Number of Pages:</b> {{book.numberOfPages}} </h6>
+		  </div>
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.publisher">
+			 <h6> <b>Publisher:</b> {{book.publisher}} </h6>
+		  </div>
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.country">
+			 <h6> <b>Country:</b> {{book.country}} </h6>
+		  </div>
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.mediaType">
+			 <h6> <b>Media Type:</b> {{book.mediaType}} </h6>
+		  </div>
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.released">
+			 <h6> <b>Released:</b> {{book.released}} </h6>
+		  </div>
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.authors">
+			 <h6> <b> Authors:</b></h6>
+			 <h6 *ngFor="let author of book.authors">{{author}}</h6>
+		  </div>
+	   </div>
+	   <div class="col col-sm-1 col-md-1">
+		  <!-- Blank space for UI purposes -->
+	   </div>
+	   <div class="col col-sm-5 col-md-5 " >
+		  <div class="col col-sm-12 col-md-12" *ngIf="book.povCharacters[0]">
+			 <h3>Main Characters: </h3>
+			 <div  class="col col-sm-12 col-md-12 text-center"  *ngFor ="let character of book.povCharacters">
 				<h6><a [routerLink] ="['/character',character.split('/').pop()]"  style="color: #81d0e7;">{{ character}}</a></h6>
 				<h6 *ngIf = "book.povCharacters == ''">Data Unavailable</h6>
 			 </div>
-
-		</div>
-</div>
+		  </div>
+	   </div>
 	</div>
-	
 	<br>
 	<div class="col col-sm-12 col-md-12" style="display: flex;justify-content: center;margin: 10px 0px;">
-            <p><button  class="btn btn-primary"  onclick="window.history.back();">Back</button></p>
-         </div>
+	   <p><button  class="btn btn-primary"  onclick="window.history.back();">Back</button></p>
+	</div>
 	<!-- <div class="col-md-12"><button class="btn btn-primary" [routerLink]="['/home']">Go back</button></div> -->
-
-</div>
+ </div>
