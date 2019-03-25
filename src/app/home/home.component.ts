@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
    public searchCharacterName ="";
    public searchGender ="";
    public searchAliases= "";
+   public searchHouseName = "";
+   public searchRegion="";
   constructor(public gotHttpService: GotHttpService) { }
 
   ngOnInit() {
@@ -32,8 +34,8 @@ export class HomeComponent implements OnInit {
     this.allShow();
     
     setTimeout(() => {
-      this.allShow();
-      console.log(this.allData);
+      // this.allShow();
+      // console.log(this.allData);
     }, 10000);
   }
 
@@ -65,6 +67,7 @@ export class HomeComponent implements OnInit {
   //houses
     this.gotHttpService.getAllHouses().subscribe( 
       data => {
+          this.allHouseArray = this.allCharArray.concat(data)  
           this.allData = this.allData.concat(data);
         }
     );
@@ -109,6 +112,9 @@ public resetButton = function(){
   this.searchGender ="";
   this.searchAliases= "";
   this.search="";
+
+  this.searchHouseName = "";
+  this.searchRegion="";
   this.allShow();
 }
   }

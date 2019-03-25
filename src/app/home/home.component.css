@@ -1,13 +1,13 @@
 
 .card{
-  width : 20rem;
-  margin: 30%; 
-  height: 18rem;
+  width : 25rem;
+  margin: 50%; 
+  height: 20rem;
   border: 2px solid;
-  border-radius: 40px;
-  box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
+  border-radius: 15rem;
+  /* box-sizing: content-box; */
+  /* -webkit-box-sizing: content-box; */
+  /* -moz-box-sizing: content-box; */
   color: rgb(231, 158, 158);
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background: linear-gradient(to right, #8c1ce3 0%, #9900cc 100%);

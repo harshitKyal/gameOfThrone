@@ -37,13 +37,14 @@ if (this.char) {
   // console.log(this.char)
 // tslint:disable-next-line: forin
       for (let i in this.char.tvSeries) {
-        // this.series.push(i);
+         this.series.push(i);
         //console.log(main.people);
     }
   }
     // console.log("series")
     // console.log(this.series)
-    this.char.seasons = this.series.toString();},
+    this.char.seasons = this.series.toString();
+  },
     
       error =>{
         console.log("error occured");

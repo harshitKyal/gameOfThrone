@@ -17,9 +17,10 @@ import {uniquePipe} from './unique';
 import {searchPipe} from './search-pipe';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AlertModule } from 'ngx-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,HttpClientModule,AngularFontAwesomeModule,
+  imports:      [ BrowserModule, FormsModule,HttpClientModule,AngularFontAwesomeModule,NgxPaginationModule,
     AlertModule.forRoot(),
   RouterModule.forRoot([
     {path: '', component:HomeComponent},

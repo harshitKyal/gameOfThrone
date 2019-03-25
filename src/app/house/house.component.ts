@@ -36,13 +36,13 @@ if (this.house ) {
   // console.log(this.char)
 // tslint:disable-next-line: forin
       for (let i in this.house.titles) {
-        // this.name.push(i);
+        this.name.push(i);
         //console.log(main.people);
     }
   }
     // console.log("series")
     // console.log(this.series)
-    // this.house.titles = this.name.toString();
+    this.house.titles = this.name.toString();
     // console.log("house")
     // console.log(this.house)
       },

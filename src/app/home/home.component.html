@@ -17,9 +17,10 @@
 		</div>
 	</div>
 </div>
+
 	<div class="container" >
 	<div class="row" *ngIf="allData.length>0 && allData.books">
-			
+		
 					<div class="col-md-4  col-xs-6 col-sm-4"  style="padding:0 !important; margin:10px 0px">
 						
 							<select class="hh form-control" [(ngModel)]="searchBookName" >
@@ -75,9 +76,31 @@
 			</div>
 			</div>
 
+				<!-- for houses filter -->
+	<div class="container" >
+		<div class="row" *ngIf="allData.length>0 && allData.houses">
+				
+						<div class="col-md-6  col-xs-6 col-sm-6"  style="padding:0 !important; margin:10px 0px">
+							
+								<select class="hh form-control" [(ngModel)]="searchHouseName" >
+										<option  selected="selected" value="">-- Select Name --</option>
+									<option *ngFor="let data of allHouseArray | filterUnique : 'name'" [value]="data">{{data}}</option>
+								</select>
+							 </div>
+							
+							 <div class="col-md-6  col-xs-6 col-sm-6"  style="padding:0 !important; margin:10px 0px">
+								<select class="hh form-control" [(ngModel)]="searchRegion">
+									<option   value="" selected="selected" >-- Select Regoin --</option>
+									<option  *ngFor="let data of allHouseArray | filterUnique : 'region'" [value]="data">{{data}}</option>
+								</select>
+							 </div>
+							
+		</div>
+		</div>
+
 	<div class="container">
 <div class="row" *ngIf="allData.length>0">
-	<div  *ngFor="let data of allData	|filter:search|searchFilter : searchIsbn:'isbn' |searchFilter : searchBookName:'name'|searchFilter : searchPublisher:'publisher' |searchFilter : searchCharacterName:'name' |searchFilter : searchGender:'gender' |searchFilter : searchAliases:'aliases' |sort|select:view">
+	<div  *ngFor="let data of allData	|filter:search|searchFilter : searchIsbn:'isbn' |searchFilter : searchBookName:'name'|searchFilter : searchPublisher:'publisher' |searchFilter : searchCharacterName:'name' |searchFilter : searchGender:'gender' |searchFilter : searchAliases:'aliases' |searchFilter : searchHouseName:'name'|searchFilter : searchRegion:'region'|sort|select:view |paginate: { itemsPerPage: 10, currentPage: p }">
 			<!-- to display books -->
 			<div class="col-xs-12 col-md-4 col-sm-4  text-center " *ngIf="(allData.books || allData.all) && data.isbn">
 					<a [routerLink]="['/books',data.url.split('/').pop()]">
@@ -117,7 +140,12 @@
 	</div>
 		</div>
 		
-	</div></div>
+		
+	</div>
+	<div class="text-center ">
+		<pagination-controls (pageChange)="p = $event" autoHide="true" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+	  </div>
+</div>
 
 <br>
 <br>
